@@ -7,22 +7,37 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
+    final double euroConversion = 0.89;
+
+    public void buildImages() {
+        ImageView dollarImage = (ImageView)findViewById(R.id.dollarImage);
+        ImageView euroImage = (ImageView)findViewById(R.id.euroImage);
+        ImageView arrowImage = (ImageView)findViewById(R.id.arrowImage);
+        dollarImage.setVisibility(View.VISIBLE);
+        euroImage.setVisibility(View.VISIBLE);
+        arrowImage.setVisibility(View.VISIBLE);
+    }
+
+    public String convertToEuros(String dollars) {
+        double parsedInput = Double.parseDouble(dollars);
+        return String.valueOf(parsedInput * euroConversion);
+    }
+
     public void convertCurrency(View v) {
-        EditText amountInDollars = (EditText)findViewById(R.id.amountInDollars);
-        String dollarsInput = amountInDollars.getText().toString();
-        final double dollarsOutput = Double.parseDouble(dollarsInput);
-        double euroConversion = 0.89;
-        double dollarsInEuros = dollarsOutput * euroConversion;
-        String euroOutput = "$" + dollarsInput + " in euros is " + dollarsInEuros;
+        EditText dollarView = (EditText)findViewById(R.id.amountInDollars);
+        String dollarsInput = dollarView.getText().toString();
+        String dollarsToEuros = convertToEuros(dollarsInput);
 
-        Log.i("Test", "Function working");
-
-        Toast.makeText(getApplicationContext(), euroOutput, Toast.LENGTH_LONG).show();
-
+        buildImages();
+        TextView dollars = (TextView) findViewById(R.id.dollars);
+        dollars.setText(dollarsInput);
+        TextView euros = (TextView) findViewById(R.id.euros);
+        euros.setText(dollarsToEuros);
     }
 
     @Override

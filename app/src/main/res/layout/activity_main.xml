@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.hornj.currencyconverter.MainActivity">
+    tools:context="com.hornj.currencyconverter.MainActivity"
+    android:visibility="visible">
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,11 +37,55 @@
         android:onClick="convertCurrency" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/dollarImage"
+        android:src="@drawable/dollar"
+        android:maxHeight="20dp"
+        android:maxWidth="20dp"
         android:layout_below="@+id/convert"
-        android:layout_toLeftOf="@+id/textView"
-        android:layout_toStartOf="@+id/textView"
-        android:layout_marginTop="100dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="37dp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/dollars"
+        android:layout_alignBottom="@+id/euroImage"
+        android:layout_alignLeft="@+id/convert"
+        android:layout_alignStart="@+id/convert" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/euroImage"
+        android:src="@drawable/euro"
+        android:background="#000000"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/dollarImage"
+        android:layout_alignRight="@+id/convert"
+        android:layout_alignEnd="@+id/convert"
+        android:layout_marginRight="22dp"
+        android:layout_marginEnd="22dp" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/euros"
+        android:layout_alignTop="@+id/euroImage"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/arrowImage"
+        android:src="@drawable/arrow"
+        android:layout_alignTop="@+id/euroImage"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
 </RelativeLayout>
